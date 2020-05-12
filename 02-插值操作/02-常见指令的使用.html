@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>{{msg1}}</h2>
+        <h2 v-once>{{msg1}}</h2>
+        <h2 v-html="url"></h2>
+        <h2 v-text="msg1"></h2>
+        <h2 v-pre>{{msg1}}</h2>
+    </div>
+    <h1>-------------------------</h1>
+    <div id="app2">
+        <h2 v-cloak>{{msg2}}</h2>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            msg1: '111',
+            url:'<a href="http://www.baidu.com">百度</a>'
+        }
+    }
+    )
+    setTimeout(function(){
+        let app2 = new Vue({
+            el: '#app2',
+            data: {
+                msg2: '222'
+            }
+        }
+        )
+    },1000)
+    
+</script>
+</html>

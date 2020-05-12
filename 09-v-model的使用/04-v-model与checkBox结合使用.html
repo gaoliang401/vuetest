@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+             <!-- 1.checkBox单选框 -->
+            <label for="licence">
+                <input type="checkbox" id="licence" v-model="agree">同意协议
+            </label>
+            <h2>{{agree}}</h2>
+            <button :disabled="!agree">下一步</button>
+
+            <br>
+            <!-- 2.checkBox多选框 -->
+            <input type="checkbox" value="篮球" v-model ="hobbies">篮球
+            <input type="checkbox" value="足球" v-model ="hobbies">足球
+            <input type="checkbox" value="乒乓球" v-model ="hobbies">乒乓球
+            <h2>{{hobbies}}</h2>
+            </div>
+</body>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            agree:false,
+            hobbies:[]
+        }
+        }
+    )
+</script>
+</html>

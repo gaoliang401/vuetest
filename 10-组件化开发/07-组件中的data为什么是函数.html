@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 3.使用组件 -->
+        <cpn></cpn>
+        <cpn></cpn>
+        <cpn></cpn>
+    </div>
+</body>
+
+<template id="cpn">
+    <div>
+        <h2>当前计数:{{count}}</h2>
+        <button @click="add">+</button>
+        <button @click="sub">-</button>
+    </div>
+</template>
+
+<script>
+    // const obj = {
+    //         count: 0
+    //     }
+    Vue.component('cpn',{
+        template:'#cpn',
+        data(){
+            return {
+                count:0
+            }
+        },
+        // data(){
+        //     return obj
+        // },
+        methods:{
+            add:function(){
+                this.count++;
+                console.log("add");
+            },
+            sub:function(){
+                this.count--;
+                console.log("sub");
+            }
+        }
+    });
+
+    const app = new Vue({
+        el:'#app',
+        data:{
+            msg:'111'
+        }
+        }
+    )
+</script>
+</html>

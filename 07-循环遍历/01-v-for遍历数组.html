@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <!-- (value,index) -->
+            <li v-for="(item,index) in moves">{{index+1}}-{{item}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            moves:['电影1','电影2','电影3','电影4','电影5','电影6']
+        }
+        }
+    )
+</script>
+</html>

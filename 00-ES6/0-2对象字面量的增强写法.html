@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+</body>
+<script>
+    const name ='张三';
+    const age =15;
+    const obj ={
+        name,
+        age
+    } 
+    console.log(obj);
+
+    const obj2 ={
+        fuc:function(obj3)
+        {
+            console.log('-----',obj3)
+        },
+        fuc2(obj3)
+        {
+            console.log('-----',obj3)
+        }
+    }
+    obj2.fuc(obj);
+    obj2.fuc2(obj);
+</script>
+</html>

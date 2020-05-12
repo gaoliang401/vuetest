@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2 :style="[baseStyle,Style1]">{{msg}}</h2>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+            el: '#app',
+            data: {
+                msg: '111',
+                baseStyle:{
+                    backgroundColor:'red'
+                },
+                Style1:{
+                    fontSize:'100px'
+                }
+            }
+
+        }
+        )
+</script>
+</html>

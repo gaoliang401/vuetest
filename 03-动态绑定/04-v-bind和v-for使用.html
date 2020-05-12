@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in movies" :class="getclass(index)" @click="getclick(index)">{{index}}-{{item}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+            el: '#app',
+            data: {
+                redindex:0,
+                active:'active',
+                movies: ['move1', 'move2', 'move3']
+            },
+            methods:{
+                getclass:function(index){
+                    if(index == this.redindex){
+                        return [this.active];
+                    }
+                    else{
+                        return [];
+                    }
+                },
+                getclick:function(index){
+                    this.redindex =index;
+                }
+            }
+        }
+        )
+</script>
+
+</html>

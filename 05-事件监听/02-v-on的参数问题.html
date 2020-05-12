@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 没有参数 -->
+        <button @click="add1">add1</button>
+        <!-- 有参数 -->
+        <button @click="add2('add2')">add2</button>
+         <!-- 在事件定义时,调用方法时省略了小括号,但是方法本身需要一个参数,
+            Vue会默认将浏览器产生的event事件对象作为参数传递到方法中 -->
+         <button @click="add3">add3</button>
+         <!-- 在方法定义中,除了event对象,还需要其他参数 -->
+         <button @click="add4('add4',$event)">add4</button>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            count:0
+        },
+        methods:{
+            add1(){
+                console.log("add1---");
+            },
+            add2(value){
+                console.log("add2---",value);
+            },
+            add3(event){
+                console.log("add3---",event);
+            },
+            add4(value,event){
+                console.log("add4---",value,event);
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn>
+            <h2>我是父组件替换子组件插槽的内容</h2>
+            <h2>我也是父组件替换子组件插槽的内容</h2>
+        </cpn>
+    </div>
+</body>
+
+<template id="cpn">
+    <div>
+        <h2>我是子组件</h2>
+        <slot>我是子组件插槽的默认内容</slot>
+    </div>
+</template>
+
+
+<script>
+
+    const cpn = {
+        template: '#cpn',
+        data() {
+            return {
+            }
+        },
+        methods: {
+        },
+        props: {
+        }
+    }
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name:'我是父组件name'
+        },
+        components: {
+            cpn
+        },
+        methods: {
+        }
+    }
+    )
+</script>
+
+</html>

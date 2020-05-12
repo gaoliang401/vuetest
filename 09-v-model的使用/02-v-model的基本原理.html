@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" :value="msg" @input="valueChage"> -->
+
+        <input type="text" :value="msg" @input="msg = $event.target.value">
+        {{msg}}
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            msg:'111'
+        },
+        methods:{
+            valueChage(event){
+                this.msg = event.target.value;
+            }
+        }
+        }
+    )
+</script>
+</html>

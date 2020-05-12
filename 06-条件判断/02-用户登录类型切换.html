@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <label>{{content}}</label>
+        <!-- 如果这里用if else 创建两套dom元素，加上key，就可以避免
+        Vue进行dom复用时，导致切换没有清空录入数据 -->
+        <input type="text" :placeholder="content" key ="aaa">
+        <button @click='change'>切换登录类型</button>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            loginType:'username'
+        },
+        methods:{
+            change(){
+                this.loginType = this.loginType =='username'?'email':'username'
+            }
+        },
+        computed:{
+            content(){
+                return this.loginType == 'username'?'用户名登录':'邮箱登录'
+            }
+        }
+    })
+</script>
+</html>

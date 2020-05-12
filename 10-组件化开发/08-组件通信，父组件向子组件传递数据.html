@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <cpn :cmovies="movies" :cmsg="msg">
+
+        </cpn>
+    </div>
+</body>
+
+<template id="cpn">
+    <div>
+        <p>{{cmovies}}</p> 
+        <h2>{{cmsg}}</h2>
+    </div>
+</template>
+
+<script>
+    //父传子:props
+    const cpn ={
+        template:'#cpn',
+        //props:['cmovies','cmsg'] //1.数组形式
+        props:{                    //2.对象形式
+           //1.类型限制
+            // cmovies:Array,
+            // cmsg:String
+
+            //2.提供一些默认值
+            cmsg:{
+                //type:String,
+                type:[String,Number], //可以多种//也可以自定义类型(比如obj对象)
+                default:'默认值',
+                required:true
+            },
+            cmovies:{
+                type:Array,
+                default(){      //数组默认值
+                    return []
+                },
+                // validator(value){
+                //     return value.length==8;
+                // }
+            }
+        }
+    }
+
+    const app = new Vue({
+        el:'#app',
+        data:{
+            movies:['111','222','333'],
+            msg:323232
+        },
+        components:{
+            cpn
+        }
+        }
+    )
+</script>
+</html>

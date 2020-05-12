@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app" @click='divclick' style="height: 200px;width: 200px;background-color: red;">
+        <button @click="btnclick">add1</button>
+
+        <!-- 阻止冒泡 .stop-->
+        <button @click.stop="btnclick">add2</button>
+
+        <br>
+        <form action="baidu">
+            <!-- 阻止默认事件 .prevent -->
+            <input type="submit" value="提交" @click.prevent.stop='btnclick'>
+        </form>
+
+        <!-- 键盘修饰符,键盘别名 -->
+        <input @keyup.enter='btnclick'>
+        <!-- 键盘修饰符,键盘代码 -->
+        <input @keyup.13='btnclick'>
+
+        <!-- 只调用一次 -->
+        <br>
+        <button @click.once='btnclick'>调用一次</button>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            count:0
+        },
+        methods:{
+            btnclick(){
+                console.log("btnclick---");
+            },
+            divclick(){
+                console.log("divclick---");
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <cpn :c-info="info">   //驼峰改为以  -  连接的语法格式
+        </cpn>
+    </div>
+</body>
+<template id="cpn">
+    <div>
+        <h2>{{cInfo}}</h2>
+    </div>
+</template>
+<script>
+    const cpn={
+        template:'#cpn',
+        data(){
+            return {
+
+            }
+        },
+        props:{
+            cInfo:{
+                type:Object,
+                default(){
+                    return {}
+                }
+            }
+        }
+    }
+
+    const app = new Vue({
+        el:'#app',
+        data:{
+            info:{
+                name:'111',
+                age:15,
+                sex:1.88
+            }
+        },
+        components:{
+            cpn
+        }
+        }
+    )
+</script>
+</html>
